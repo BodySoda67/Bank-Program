@@ -1,8 +1,9 @@
 #include<stdio.h>
+#include<string.h>
 int main()
 {
     int balance=10000,n,i;
-    char a;
+    char a[10];
     do{
     printf("welcome! Please select an option.");
     printf("\n1.Deposit  2.Withdrawl  3.Check Balance  4.Exit\n");
@@ -19,8 +20,13 @@ int main()
     {
         printf("Enter Withdrawl amount :");
         scanf("%d",&i);
+        if(i>balance)
+            printf("insuffcient balance");
+        else
+        {
         balance-=i;
         printf("successfully withdrawn!");
+        }
 
     }
      else if(n==3)
@@ -32,7 +38,7 @@ int main()
         break;
      }
     printf("\nDo you want to continue? yes or no:");
-    scanf("%s",&a);
-    }while(a=='y'||a=='Y');
+    scanf("%9s",a);
+    }while(strcmp(a,"Y")==0||strcmp(a,"y")==0||strcmp(a,"yes")==0||strcmp(a,"YES")==0);
 
 }
